@@ -4,14 +4,14 @@ This is my repo for the Capstone project in the [Udacity C++ Nanodegree Program]
 
 I ve used the https://github.com/udacity/CppND-Capstone-Snake-Game as a base which was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
 
-<img src="pong.jpg"/>
+<img center src="pong.jpg"/>
 
 The Capstone Project gave me a chance to integrate what i've learned throughout this program. 
 
 This project remakes the classic atari game "pong".
 
 ## Feature-list:
-* 2 Players who can move their tennis-racket
+* 2 Players which can move their tennis-racket
   * one player with arrow-up / arrow-down
   * one player with w-key / s-key
 * ball
