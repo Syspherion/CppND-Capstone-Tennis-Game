@@ -10,17 +10,15 @@ The Capstone Project gave me a chance to integrate what i've learned throughout 
 
 This project remakes the classic atari game "pong".
 
-Feature-list:
+## Feature-list:
 * 2 Players who can move their tennis-racket
   * one player with arrow-up / arrow-down
   * one player with w-key / s-key
-
 * ball
   * starts at center of the game
   * starts moving in a random direction
   * a new ball can be generated with the space-key
   * if ball hits side-wall, it bounces in a random-opposite direction
-
 * counting points
   * if ball hits wall behind one player, the opposite player gains one point and ball disapears
   * points are counted at the top-bar    
