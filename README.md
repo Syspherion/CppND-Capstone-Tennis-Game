@@ -8,7 +8,23 @@ I ve used the https://github.com/udacity/CppND-Capstone-Snake-Game as a base whi
 
 The Capstone Project gave me a chance to integrate what i've learned throughout this program. 
 
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+This project remakes the classic atari game "pong".
+
+Feature-list:
+* 2 Players who can move their tennis-racket
+  * one player with arrow-up / arrow-down
+  * one player with w-key / s-key
+
+* ball
+  * starts at center of the game
+  * starts moving in a random direction
+  * a new ball can be generated with the space-key
+  * if ball hits side-wall, it bounces in a random-opposite direction
+
+* counting points
+  * if ball hits wall behind one player, the opposite player gains one point and ball disapears
+  * points are counted at the top-bar    
+
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
