@@ -37,7 +37,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
     // After every second, update the window title.
     if (frame_end - title_timestamp >= 1000) {
-      renderer.UpdateWindowTitle(score, frame_count);
+      renderer.UpdateWindowTitle(scorePlayerOne, scorePlayerTwo, frame_count);
       frame_count = 0;
       title_timestamp = frame_end;
     }
@@ -69,14 +69,14 @@ void Game::PlaceFood() {
 void Game::Update() {
 
   snake.Update();
-  ball.Update();
+  ball.Update(scorePlayerOne, scorePlayerTwo);
 
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
 
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
-    score++;
+    scorePlayerOne++;
     PlaceFood();
     // Grow snake and increase speed.
     snake.GrowBody();
@@ -84,5 +84,6 @@ void Game::Update() {
   }
 }
 
-int Game::GetScore() const { return score; }
+int Game::GetScorePlayerOne() const { return scorePlayerOne; }
+int Game::GetScorePlayerTwo() const { return scorePlayerTwo; }
 int Game::GetSize() const { return snake.size; }

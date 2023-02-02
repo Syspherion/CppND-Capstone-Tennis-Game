@@ -15,7 +15,7 @@ class Ball {
         head_x(grid_width / 2),
         head_y(grid_height / 2+1) {}
 
-  void Update();
+  void Update(int & scorePlayerOne, int & scorePlayerTwo);
 
   bool RacketCell(int x, int y);
 
@@ -29,7 +29,7 @@ class Ball {
   std::vector<SDL_Point> body;
 
  private:
-  void UpdateHead();
+  void UpdateHead(int &scorePlayerOne, int &scorePlayerTwo);
 
   Direction_x direction_x = Direction_x::kLeft;
   Direction_y direction_y = Direction_y::kUp;

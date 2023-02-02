@@ -16,7 +16,7 @@ Renderer::Renderer(const std::size_t screen_width,
   }
 
   // Create Window
-  sdl_window = SDL_CreateWindow("Snake Game", SDL_WINDOWPOS_CENTERED,
+  sdl_window = SDL_CreateWindow(BuildWindowTitle(0,0,0).c_str(), SDL_WINDOWPOS_CENTERED,
                                 SDL_WINDOWPOS_CENTERED, screen_width,
                                 screen_height, SDL_WINDOW_SHOWN);
 
@@ -56,7 +56,7 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, Ball const ball)
   // Render ball
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
     block.x = static_cast<int>(ball.head_x) * block.w;
-  block.y = static_cast<int>(ball.head_y) * block.h;
+  block.y = static_cast<int>(ball.head_y) * block.h ;
   SDL_RenderFillRect(sdl_renderer, &block);
 
   // Render snake's body
@@ -68,20 +68,22 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, Ball const ball)
   }
 
   // Render snake's head
+  
   block.x = static_cast<int>(snake.head_x) * block.w;
   block.y = static_cast<int>(snake.head_y) * block.h;
-  if (snake.alive) {
-    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
-  } else {
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
-  }
+  
+  SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
   SDL_RenderFillRect(sdl_renderer, &block);
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::UpdateWindowTitle(int score, int fps) {
-  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
+void Renderer::UpdateWindowTitle(int scorePlayerOne, int scorePlayerTwo, int fps) {
+  std::string title = BuildWindowTitle(scorePlayerOne, scorePlayerTwo, fps);
   SDL_SetWindowTitle(sdl_window, title.c_str());
+}
+
+std::string Renderer::BuildWindowTitle(int scorePlayerOne, int scorePlayerTwo, int fps){
+  return "Tennis Player One: " + std::to_string(scorePlayerOne) + " / Player Two: " + std::to_string(scorePlayerTwo)+ " FPS: " + std::to_string(fps);
 }
