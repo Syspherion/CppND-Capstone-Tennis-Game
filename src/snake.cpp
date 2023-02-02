@@ -3,6 +3,7 @@
 #include <iostream>
 
 void Snake::Update() {
+  
   SDL_Point prev_cell{
       static_cast<int>(head_x),
       static_cast<int>(
@@ -20,27 +21,35 @@ void Snake::Update() {
 }
 
 void Snake::UpdateHead() {
-  switch (direction) {
-    case Direction::kUp:
+  
+  if(direction == Direction::kUp){
+    if(head_y > 0){
       head_y -= speed;
-      break;
-
-    case Direction::kDown:
-      head_y += speed;
-      break;
-
-    case Direction::kLeft:
-      head_x -= speed;
-      break;
-
-    case Direction::kRight:
-      head_x += speed;
-      break;
+    }
+    return;
   }
 
-  // Wrap the Snake around to the beginning if going off of the screen.
-  head_x = fmod(head_x + grid_width, grid_width);
-  head_y = fmod(head_y + grid_height, grid_height);
+    if(direction == Direction::kDown){
+    if(head_y < grid_height-1){
+      head_y += speed;
+    }
+    return;
+  }
+
+    if(direction == Direction::kLeft){
+    if(head_x > 0){
+      head_x -= speed;
+    }
+    return;
+  }
+
+    if(direction == Direction::kRight){
+    if(head_x < grid_width-1){
+      head_x += speed;
+    }
+    return;
+  }
+  
 }
 
 void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) {
@@ -53,13 +62,6 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
   } else {
     growing = false;
     size++;
-  }
-
-  // Check if the snake has died.
-  for (auto const &item : body) {
-    if (current_head_cell.x == item.x && current_head_cell.y == item.y) {
-      alive = false;
-    }
   }
 }
 

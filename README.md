@@ -60,3 +60,24 @@ This work is licensed under a
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+
+## Overview of your code structure
+
+## Necessary rubric
+
+  * The project demonstrates an understanding of C++ functions and control structures.
+    * A variety of control structures are used in the project.
+      * DONE
+    * The project code is clearly organized into functions.
+      * DONE
+  * The project accepts user input and processes the input.
+    * DONE: Using Keys for moving tennis racket
+  * The project uses Object Oriented Programming techniques.
+    * -> The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks.
+      * DONE
+  * Classes use appropriate access specifiers for class members.
+    * All class data members are explicitly specified as public, protected, or private.
+      * DONE
+  * Class constructors utilize member initialization lists.
+    * All class members that are set to argument values are initialized through member initialization lists.
+      * DONE
