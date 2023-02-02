@@ -17,9 +17,6 @@ class Ball {
 
   void Update(int & scorePlayerOne, int & scorePlayerTwo);
 
-  bool RacketCell(int x, int y);
-
-
 
   float speed{0.1f};
   int size{1};

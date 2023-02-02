@@ -38,7 +38,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Snake const snake, SDL_Point const &food, Ball const ball) {
+void Renderer::Render(Snake const snake, Ball const ball) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -47,28 +47,14 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, Ball const ball)
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
 
-  // Render food
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
-  block.x = food.x * block.w;
-  block.y = food.y * block.h;
-  SDL_RenderFillRect(sdl_renderer, &block);
-  
   // Render ball
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
     block.x = static_cast<int>(ball.head_x) * block.w;
   block.y = static_cast<int>(ball.head_y) * block.h ;
   SDL_RenderFillRect(sdl_renderer, &block);
 
-  // Render snake's body
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-  for (SDL_Point const &point : snake.body) {
-    block.x = point.x * block.w;
-    block.y = point.y * block.h;
-    SDL_RenderFillRect(sdl_renderer, &block);
-  }
 
   // Render snake's head
-  
   block.x = static_cast<int>(snake.head_x) * block.w;
   block.y = static_cast<int>(snake.head_y) * block.h;
   
@@ -85,5 +71,5 @@ void Renderer::UpdateWindowTitle(int scorePlayerOne, int scorePlayerTwo, int fps
 }
 
 std::string Renderer::BuildWindowTitle(int scorePlayerOne, int scorePlayerTwo, int fps){
-  return "Tennis Player One: " + std::to_string(scorePlayerOne) + " / Player Two: " + std::to_string(scorePlayerTwo)+ " FPS: " + std::to_string(fps);
+  return "Tennis Manuel: " + std::to_string(scorePlayerOne) + " / Melanie: " + std::to_string(scorePlayerTwo)+ " FPS: " + std::to_string(fps);
 }
