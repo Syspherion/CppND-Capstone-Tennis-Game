@@ -18,6 +18,8 @@ class Renderer {
 
  private:
   std::string BuildWindowTitle(int scorePlayerOne, int scorePlayerTwo, int fps);
+  void RenderRacket(Snake const snake);
+  void RenderBall(Ball const ball);
   
   SDL_Window *sdl_window;
   SDL_Renderer *sdl_renderer;

@@ -2,20 +2,20 @@
 #include <cmath>
 #include <iostream>
 
-void Ball:: Update(int &scorePlayerOne, int &scorePlayerTwo)
+void Ball::Update(int &scorePlayerOne, int &scorePlayerTwo)
 {
-
   SDL_Point prev_cell{
       static_cast<int>(head_x),
       static_cast<int>(
           head_y)}; // We first capture the head's cell before updating.
-  UpdateHead(scorePlayerOne,scorePlayerTwo);
-  SDL_Point current_cell{
-      static_cast<int>(head_x),
-      static_cast<int>(head_y)}; // Capture the head's cell after updating.
+
+  handleLeftDirection(scorePlayerTwo);
+  handleRightDirection(scorePlayerOne);
+  handleUpDirection();
+  handleDownDirection();
 }
 
-void Ball::UpdateHead(int &scorePlayerOne, int &scorePlayerTwo)
+void Ball::handleLeftDirection(int &scorePlayerTwo)
 {
   if (direction_x == Direction_x::kLeft)
   {
@@ -29,7 +29,10 @@ void Ball::UpdateHead(int &scorePlayerOne, int &scorePlayerTwo)
       direction_x = Direction_x::kRight;
     }
   }
+}
 
+void Ball::handleRightDirection(int &scorePlayerOne)
+{
   if (direction_x == Direction_x::kRight)
   {
     if (head_x < grid_width - 1)
@@ -42,7 +45,9 @@ void Ball::UpdateHead(int &scorePlayerOne, int &scorePlayerTwo)
       direction_x = Direction_x::kLeft;
     }
   }
-
+}
+void Ball::handleUpDirection()
+{
   if (direction_y == Direction_y::kUp)
   {
     if (head_y > 1)
@@ -54,6 +59,10 @@ void Ball::UpdateHead(int &scorePlayerOne, int &scorePlayerTwo)
       direction_y = Direction_y::kDown;
     }
   }
+}
+
+void Ball::handleDownDirection()
+{
 
   if (direction_y == Direction_y::kDown)
   {

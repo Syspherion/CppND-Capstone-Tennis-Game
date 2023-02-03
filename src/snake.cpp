@@ -1,6 +1,7 @@
 #include "snake.h"
 #include <cmath>
 #include <iostream>
+#include "config.h"
 
 void Snake::Update() {
   
@@ -25,24 +26,10 @@ void Snake::UpdateHead() {
   }
 
     if(direction == Direction::kDown){
-    if(head_y < grid_height-1){
+    if(head_y < grid_height-Config::getRacketSize()){
       head_y += speed;
     }
     return;
   }
 
-    if(direction == Direction::kLeft){
-    if(head_x > 0){
-      head_x -= speed;
-    }
-    return;
-  }
-
-    if(direction == Direction::kRight){
-    if(head_x < grid_width-1){
-      head_x += speed;
-    }
-    return;
-  }
-  
 }
