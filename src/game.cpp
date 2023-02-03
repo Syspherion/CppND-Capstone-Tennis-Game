@@ -3,7 +3,7 @@
 #include "SDL.h"
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
-    : snake(grid_width, grid_height),
+    : racket(grid_width, grid_height),
       ball(grid_width, grid_height),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
@@ -23,9 +23,9 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
-    controller.HandleInput(running, snake);
+    controller.HandleInput(running, racket);
     Update();
-    renderer.Render(snake, ball);
+    renderer.Render(racket, ball);
 
     frame_end = SDL_GetTicks();
 
@@ -52,11 +52,11 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
 void Game::Update() {
 
-  snake.Update();
+  racket.Update();
   ball.Update(scorePlayerOne, scorePlayerTwo);
 
 }
 
 int Game::GetScorePlayerOne() const { return scorePlayerOne; }
 int Game::GetScorePlayerTwo() const { return scorePlayerTwo; }
-int Game::GetSize() const { return snake.size; }
+int Game::GetSize() const { return racket.size; }

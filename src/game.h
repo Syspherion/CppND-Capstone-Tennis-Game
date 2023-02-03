@@ -6,7 +6,7 @@
 #include "controller.h"
 #include "renderer.h"
 #include "renderer.h"
-#include "snake.h"
+#include "racket.h"
 #include "ball.h"
 
 class Game {
@@ -19,7 +19,7 @@ class Game {
   int GetSize() const;
 
  private:
-  Snake snake;
+  Racket racket;
   Ball ball;
   SDL_Point food;
 

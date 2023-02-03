@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include "SDL.h"
-#include "snake.h"
+#include "racket.h"
 #include "ball.h"
 
 class Renderer {
@@ -13,12 +13,12 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
 
-  void Render(Snake const snake, Ball const ball);
+  void Render(Racket const racket, Ball const ball);
   void UpdateWindowTitle(int scorePlayerOne, int scorePlayerTwo, int fps);
 
  private:
   std::string BuildWindowTitle(int scorePlayerOne, int scorePlayerTwo, int fps);
-  void RenderRacket(Snake const snake);
+  void RenderRacket(Racket const racket);
   void RenderBall(Ball const ball);
   
   SDL_Window *sdl_window;

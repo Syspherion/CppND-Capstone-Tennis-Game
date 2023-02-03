@@ -18,11 +18,13 @@ This project remakes the classic atari game "pong".
   * starts at center of the game
   * starts moving in a random direction
   * a new ball can be generated with the space-key
-  * if ball hits side-wall, it bounces in a random-opposite direction
+  * if ball hits side-wall, it bounces of
 * counting points
-  * if ball hits wall behind one player, the opposite player gains one point and ball disapears
+  * if ball hits wall behind one player, the opposite player gains one point.
   * points are counted at the top-bar    
-
+* There is a configuration class which can be used to configure the game
+  * player names
+  * racket size
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -44,7 +46,7 @@ This project remakes the classic atari game "pong".
 1. Clone this repo.
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./SnakeGame`.
+4. Run it: `./TennisGame`.
 
 
 ## CC Attribution-ShareAlike 4.0 International

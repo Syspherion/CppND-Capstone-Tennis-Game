@@ -1,9 +1,9 @@
 #include "controller.h"
 #include <iostream>
 #include "SDL.h"
-#include "snake.h"
+#include "racket.h"
 
-void Controller::HandleInput(bool &running, Snake &snake) const
+void Controller::HandleInput(bool &running, Racket &racket) const
 {
   SDL_Event e;
   while (SDL_PollEvent(&e))
@@ -17,11 +17,11 @@ void Controller::HandleInput(bool &running, Snake &snake) const
       switch (e.key.keysym.sym)
       {
       case SDLK_UP:
-        snake.direction = Snake::Direction::kUp;
+        racket.direction = Racket::Direction::kUp;
         break;
 
       case SDLK_DOWN:
-        snake.direction = Snake::Direction::kDown;
+        racket.direction = Racket::Direction::kDown;
         break;
 
       case SDLK_SPACE:
