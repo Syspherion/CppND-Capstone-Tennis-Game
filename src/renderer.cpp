@@ -43,27 +43,27 @@ Renderer::~Renderer()
   SDL_Quit();
 }
 
-void Renderer::Render(Snake const snake, Ball const ball)
+void Renderer::Render(Racket const racket, Ball const ball)
 {
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
 
   Renderer::RenderBall(ball);
-  Renderer::RenderRacket(snake);
+  Renderer::RenderRacket(racket);
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::RenderRacket(Snake const snake)
+void Renderer::RenderRacket(Racket const racket)
 {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
 
-  block.x = static_cast<int>(snake.head_x) * block.w;
-  block.y = static_cast<int>(snake.head_y) * block.h;
+  block.x = static_cast<int>(racket.head_x) * block.w;
+  block.y = static_cast<int>(racket.head_y) * block.h;
 
   for (size_t i = 0; i < Config::getRacketSize(); i++)
   {
