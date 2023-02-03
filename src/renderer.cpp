@@ -43,14 +43,15 @@ Renderer::~Renderer()
   SDL_Quit();
 }
 
-void Renderer::Render(Racket const racket, Ball const ball)
+void Renderer::Render(Racket const racketLeft, Racket const racketRight, Ball const ball)
 {
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
 
   Renderer::RenderBall(ball);
-  Renderer::RenderRacket(racket);
+  Renderer::RenderRacket(racketLeft);
+  Renderer::RenderRacket(racketRight);
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);

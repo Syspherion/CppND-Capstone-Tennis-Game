@@ -13,7 +13,7 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
 
-  void Render(Racket const racket, Ball const ball);
+  void Render(Racket const racketLeft, Racket const racketRight, Ball const ball);
   void UpdateWindowTitle(int scorePlayerOne, int scorePlayerTwo, int fps);
 
  private:

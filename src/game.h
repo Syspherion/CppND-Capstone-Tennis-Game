@@ -16,10 +16,10 @@ class Game {
            std::size_t target_frame_duration);
   int GetScorePlayerOne() const;
   int GetScorePlayerTwo() const;
-  int GetSize() const;
 
  private:
-  Racket racket;
+  Racket racketLeft;
+  Racket racketRight;
   Ball ball;
   SDL_Point food;
 

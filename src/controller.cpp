@@ -1,9 +1,9 @@
 #include "controller.h"
 #include <iostream>
 #include "SDL.h"
-#include "racket.h"
+#include "config.h"
 
-void Controller::HandleInput(bool &running, Racket &racket) const
+void Controller::HandleInput(bool &running, Racket &racketLeft, Racket &racketRight) const
 {
   SDL_Event e;
   while (SDL_PollEvent(&e))
@@ -14,20 +14,29 @@ void Controller::HandleInput(bool &running, Racket &racket) const
     }
     else if (e.type == SDL_KEYDOWN)
     {
-      switch (e.key.keysym.sym)
+
+      if (e.key.keysym.scancode == Config::getRacketLeftKeyUp())
       {
-      case SDLK_UP:
-        racket.direction = Racket::Direction::kUp;
-        break;
+        racketLeft.direction = Config::getRacketLeftKeyUp();
+        return;
+      }
 
-      case SDLK_DOWN:
-        racket.direction = Racket::Direction::kDown;
-        break;
+      if (e.key.keysym.scancode == Config::getRacketLeftKeyDown())
+      {
+        racketLeft.direction = Config::getRacketLeftKeyDown();
+        return;
+      }
 
-      case SDLK_SPACE:
+      if (e.key.keysym.scancode == Config::getRacketRightKeyUp())
+      {
+        racketRight.direction = Config::getRacketRightKeyUp();
+        return;
+      }
 
-        // TODO Add new ball
-        break;
+      if (e.key.keysym.scancode == Config::getRacketRightKeyDown())
+      {
+        racketRight.direction = Config::getRacketRightKeyDown();
+        return;
       }
     }
   }

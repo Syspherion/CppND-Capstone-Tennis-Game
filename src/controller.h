@@ -5,7 +5,7 @@
 
 class Controller {
  public:
-  void HandleInput(bool &running, Racket &racket) const;
+  void HandleInput(bool &running, Racket &racketLeft, Racket &racketRight) const;
 
  private:
 };
