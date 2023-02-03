@@ -2,24 +2,45 @@
 #include <cmath>
 #include <iostream>
 
+#include <iostream>
+#include <chrono>
+#include <ctime>
+#include "config.h"
+
 void Ball::Update(int &scorePlayerOne, int &scorePlayerTwo)
 {
-  SDL_Point prev_cell{
-      static_cast<int>(head_x),
-      static_cast<int>(
-          head_y)}; // We first capture the head's cell before updating.
-
   handleLeftDirection(scorePlayerTwo);
   handleRightDirection(scorePlayerOne);
   handleUpDirection();
   handleDownDirection();
 }
 
+bool Ball::hitsRacketLeft()
+{
+
+  if ((head_y - racketLeft->head_y) <= Config::getRacketSize() && (head_x - racketLeft->head_x) <= 1)
+  {
+    auto end = std::chrono::system_clock::now();
+    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
+    std::cout << std::ctime(&end_time) << "Hit"
+              << "\n";
+    return true;
+  }
+
+  return false;
+}
+
 void Ball::handleLeftDirection(int &scorePlayerTwo)
 {
+
   if (direction_x == Direction_x::kLeft)
   {
-    if (head_x > 1)
+
+    if (hitsRacketLeft())
+    {
+      direction_x = Direction_x::kRight;
+    }
+    else if (head_x > 1)
     {
       head_x -= speed;
     }

@@ -5,7 +5,7 @@
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : racketLeft(grid_width, grid_height, grid_width / 10, Config::getRacketLeftKeyUp(), Config::getRacketLeftKeyDown()),
       racketRight(grid_width, grid_height, grid_width / 10*9, Config::getRacketRightKeyUp(), Config::getRacketRightKeyDown()),
-      ball(grid_width, grid_height),
+      ball(grid_width, grid_height, racketLeft, racketRight),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1))

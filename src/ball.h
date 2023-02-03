@@ -19,11 +19,13 @@ public:
     kDown
   };
 
-  Ball(int grid_width, int grid_height)
+  Ball(int grid_width, int grid_height, Racket &racketLeft, Racket &racketRight)
       : grid_width(grid_width),
         grid_height(grid_height),
         head_x(grid_width / 2),
-        head_y(grid_height / 2 + 1) {}
+        head_y(grid_height / 2 + 1),
+        racketLeft(&racketLeft),
+        racketRight(&racketRight) {}
 
   void Update(int &scorePlayerOne, int &scorePlayerTwo);
 
@@ -31,12 +33,16 @@ public:
   int size{1};
   float head_x;
   float head_y;
+  Racket * racketLeft;
+  Racket * racketRight;
 
 private:
   void handleLeftDirection(int &scorePlayerTwo);
   void handleRightDirection(int &scorePlayerOne);
   void handleUpDirection();
   void handleDownDirection();
+  bool hitsRacketLeft();
+
   Direction_x direction_x = Direction_x::kLeft;
   Direction_y direction_y = Direction_y::kUp;
 
