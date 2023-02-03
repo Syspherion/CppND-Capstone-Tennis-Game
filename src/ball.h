@@ -42,6 +42,7 @@ private:
   void handleUpDirection();
   void handleDownDirection();
   bool hitsRacketLeft();
+  bool hitsRacketRight();
 
   Direction_x direction_x = Direction_x::kLeft;
   Direction_y direction_y = Direction_y::kUp;

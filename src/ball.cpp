@@ -1,11 +1,7 @@
 #include "ball.h"
+#include "config.h"
 #include <cmath>
 #include <iostream>
-
-#include <iostream>
-#include <chrono>
-#include <ctime>
-#include "config.h"
 
 void Ball::Update(int &scorePlayerOne, int &scorePlayerTwo)
 {
@@ -17,16 +13,19 @@ void Ball::Update(int &scorePlayerOne, int &scorePlayerTwo)
 
 bool Ball::hitsRacketLeft()
 {
-
-  if ((head_y - racketLeft->head_y) <= Config::getRacketSize() && (head_x - racketLeft->head_x) <= 1)
+  if (head_y >= racketLeft->head_y && head_y <=racketLeft->head_y+Config::getRacketSize() && (head_x - racketLeft->head_x) <= 1)
   {
-    auto end = std::chrono::system_clock::now();
-    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
-    std::cout << std::ctime(&end_time) << "Hit"
-              << "\n";
     return true;
   }
+  return false;
+}
 
+bool Ball::hitsRacketRight()
+{
+  if (head_y >= racketRight->head_y && head_y <=racketRight->head_y+Config::getRacketSize() && (racketRight->head_x - head_x) <= 1)
+  {
+    return true;
+  }
   return false;
 }
 
@@ -56,7 +55,11 @@ void Ball::handleRightDirection(int &scorePlayerOne)
 {
   if (direction_x == Direction_x::kRight)
   {
-    if (head_x < grid_width - 1)
+    if (hitsRacketRight())
+    {
+      direction_x = Direction_x::kLeft;
+    }
+    else if (head_x < grid_width - 1)
     {
       head_x += speed;
     }
