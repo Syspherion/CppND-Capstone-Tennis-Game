@@ -97,7 +97,7 @@ The files ball.h / ball.cpp handles the ball in the game. it contains collision 
   * The project reads data from a file and process the data, or the program writes data to a file.
     * The project reads data from an external file or writes data to a file as part of the necessary operation of the program.
       * Done: The Config class in config.cpp tries to initialize itself with a file which needs to be located at the same path where the program is run
-      * Sample-File can be found in src/config.properties
+      * The sample-File config.properties can be found in the main directory
   * The project accepts user input and processes the input.
     * DONE: Using Keys for moving tennis racket -> Controller::HandleInput in controller.cpp
   
