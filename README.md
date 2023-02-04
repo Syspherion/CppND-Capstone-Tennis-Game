@@ -64,6 +64,27 @@ This work is licensed under a
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
 ## Overview of your code structure
+# Main
+The files main.h / main.cpp contain the Main-function for starting programm.
+
+# Game
+The files game.h / game.cpp starts the game with a game-while-loop.
+
+# Controller
+The files controller.h / controller.cpp processes user input to move the player rackets.
+
+# Config
+The files config.h / config.cpp provides configurable values like the player names and the racket size.
+
+# Renderer
+The files renderer.h / renderer.cpp render the ball, rackets and user-information to the display.
+
+# Racket
+The files racket.h / rackets.cpp provide functions to process the rackets
+
+# Ball
+The files ball.h / ball.cpp handles the ball in the game. it contains collision detection with the walls and the player rackets
+
 
 ## Necessary rubric
 
