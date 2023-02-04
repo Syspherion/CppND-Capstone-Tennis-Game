@@ -16,15 +16,14 @@ This project remakes the classic atari game "pong".
   * one player with w-key / s-key
 * ball
   * starts at center of the game
-  * starts moving in a random direction
-  * a new ball can be generated with the space-key
   * if ball hits side-wall, it bounces of
 * counting points
   * if ball hits wall behind one player, the opposite player gains one point.
   * points are counted at the top-bar    
 * There is a configuration class which can be used to configure the game
-  * player names
+  * player names (shown at the top bar)
   * racket size
+  * keys to control rackets
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -67,19 +66,32 @@ This work is licensed under a
 
 ## Necessary rubric
 
+  ### Loops, Functions, I/O
   * The project demonstrates an understanding of C++ functions and control structures.
     * A variety of control structures are used in the project.
-      * DONE
+      * DONE overall
     * The project code is clearly organized into functions.
-      * DONE
+      * DONE overall
   * The project accepts user input and processes the input.
-    * DONE: Using Keys for moving tennis racket
+    * DONE: Using Keys for moving tennis racket -> Controller::HandleInput in controller.cpp
+  
+  ### Object Oriented Programming
   * The project uses Object Oriented Programming techniques.
     * -> The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks.
-      * DONE
+      * DONE overall
   * Classes use appropriate access specifiers for class members.
     * All class data members are explicitly specified as public, protected, or private.
-      * DONE
+      * DONE overall
   * Class constructors utilize member initialization lists.
     * All class members that are set to argument values are initialized through member initialization lists.
-      * DONE
+      * DONE overall
+  * Classes encapsulate behavior.
+    * Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
+      * DONE overall
+
+  ### Memory Management
+  * The project makes use of references in function declarations.
+    * At least two variables are defined as references, or two functions use pass-by-reference in the project code.
+      * Ball::Update in ball.cpp
+      * Ball::handleLeftDirection in ball.cpp
+      * Ball-constructor for Racket * racketLeft and Racket * racketRight in ball.h
