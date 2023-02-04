@@ -16,7 +16,7 @@ This project provides a tennis game like the classic atari game "pong".
   * one player with w-key / s-key
 * ball
   * starts at center of the game
-  * if ball hits side-wall, it bounces of
+  * if ball hits side-wall or front of racket, it bounces of
 * counting points
   * if ball hits wall behind one player, the opposite player gains one point.
   * points are counted at the top-bar    
