@@ -8,7 +8,7 @@ I ve used the https://github.com/udacity/CppND-Capstone-Snake-Game as a base whi
 
 The Capstone Project gave me a chance to integrate what i've learned throughout this program. 
 
-This project remakes the classic atari game "pong".
+This project provides a tennis game like the classic atari game "pong".
 
 ## Feature-list:
 * 2 Players which can move their tennis-racket
@@ -20,10 +20,11 @@ This project remakes the classic atari game "pong".
 * counting points
   * if ball hits wall behind one player, the opposite player gains one point.
   * points are counted at the top-bar    
-* There is a configuration class which can be used to configure the game
+* There is a configuration class which provides configuration properties for the game
   * player names (shown at the top bar)
   * racket size
   * keys to control rackets
+  * configuration can be read from properties file
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -72,6 +73,10 @@ This work is licensed under a
       * DONE overall
     * The project code is clearly organized into functions.
       * DONE overall
+  * The project reads data from a file and process the data, or the program writes data to a file.
+    * The project reads data from an external file or writes data to a file as part of the necessary operation of the program.
+      * Done: The Config class in config.cpp tries to initialize itself with a file which needs to be located at the same path where the program is run
+      * Sample-File can be found in src/config.properties
   * The project accepts user input and processes the input.
     * DONE: Using Keys for moving tennis racket -> Controller::HandleInput in controller.cpp
   
