@@ -78,16 +78,18 @@ This work is licensed under a
   ### Object Oriented Programming
   * The project uses Object Oriented Programming techniques.
     * -> The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks.
-      * DONE overall
+      * DONE overall i.e. ball.h
   * Classes use appropriate access specifiers for class members.
     * All class data members are explicitly specified as public, protected, or private.
-      * DONE overall
+      * DONE overall i.e. ball.h
   * Class constructors utilize member initialization lists.
     * All class members that are set to argument values are initialized through member initialization lists.
-      * DONE overall
+      * DONE overall i.e. ball.h
   * Classes encapsulate behavior.
-    * Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
+    * Appropriate data and functions are grouped into classes.
       * DONE overall
+    * Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
+      *   Class Racket in racket.cpp provides private float head_x and head_y via methods getHeadX() and getHeadY() which are used for example in ball.cpp Ball::hitsRacketLeft
 
   ### Memory Management
   * The project makes use of references in function declarations.

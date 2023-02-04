@@ -57,14 +57,14 @@ void Renderer::Render(Racket const racketLeft, Racket const racketRight, Ball co
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::RenderRacket(Racket const racket)
+void Renderer::RenderRacket(Racket racket)
 {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
 
-  block.x = static_cast<int>(racket.head_x) * block.w;
-  block.y = static_cast<int>(racket.head_y) * block.h;
+  block.x = static_cast<int>(racket.getHeadX()) * block.w;
+  block.y = static_cast<int>(racket.getHeadY()) * block.h;
 
   for (size_t i = 0; i < Config::getRacketSize(); i++)
   {

@@ -13,7 +13,7 @@ void Ball::Update(int &scorePlayerOne, int &scorePlayerTwo)
 
 bool Ball::hitsRacketLeft()
 {
-  if (head_y >= racketLeft->head_y && head_y <=racketLeft->head_y+Config::getRacketSize() && (head_x - racketLeft->head_x) <= 1)
+  if (head_y >= racketLeft->getHeadY() && head_y <=racketLeft->getHeadY()+Config::getRacketSize() && (head_x - racketLeft->getHeadX()) <= 1)
   {
     return true;
   }
@@ -22,7 +22,7 @@ bool Ball::hitsRacketLeft()
 
 bool Ball::hitsRacketRight()
 {
-  if (head_y >= racketRight->head_y && head_y <=racketRight->head_y+Config::getRacketSize() && (racketRight->head_x - head_x) <= 1)
+  if (head_y >= racketRight->getHeadY() && head_y <=racketRight->getHeadY()+Config::getRacketSize() && (racketRight->getHeadX() - head_x) <= 1)
   {
     return true;
   }

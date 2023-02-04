@@ -24,3 +24,13 @@ void Racket::Update()
     return;
   }
 }
+
+float Racket::getHeadX()
+{
+  return head_x;
+}
+
+float Racket::getHeadY()
+{
+  return head_y;
+}
